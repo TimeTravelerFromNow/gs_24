@@ -2262,6 +2262,7 @@ gs_graphics_uniform_type gs_uniform_type_from_token(const gs_token_t* t)
     else if (gs_token_compare_text(t, "usampler2D"))     return GS_GRAPHICS_UNIFORM_USAMPLER2D; 
     else if (gs_token_compare_text(t, "samplerCube"))    return GS_GRAPHICS_UNIFORM_SAMPLERCUBE; 
     else if (gs_token_compare_text(t, "img2D_rgba32f"))  return GS_GRAPHICS_UNIFORM_IMAGE2D_RGBA32F; 
+    else if (gs_token_compare_text(t, "pbr_desc"))       return GS_GRAPHICS_UNIFORM_PBR_DESC;
     return (gs_graphics_uniform_type)0x00;
 }
 
@@ -2279,6 +2280,7 @@ const char* gs_uniform_string_from_type(gs_graphics_uniform_type type)
         case GS_GRAPHICS_UNIFORM_USAMPLER2D:      return "usampler2D"; break; 
         case GS_GRAPHICS_UNIFORM_SAMPLERCUBE:     return "samplerCube"; break; 
         case GS_GRAPHICS_UNIFORM_IMAGE2D_RGBA32F: return "image2D"; break; 
+        case GS_GRAPHICS_UNIFORM_PBR_DESC:        return "pbr_desc"; break; 
         default: return "UNKNOWN"; break;
     }
     return (char*)0x00;
