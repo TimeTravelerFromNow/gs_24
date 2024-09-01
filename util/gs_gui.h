@@ -138,6 +138,20 @@ enum {
     GS_GUI_COLOR_CONTENT_BACKGROUND,
     GS_GUI_COLOR_CONTENT_SHADOW,
     GS_GUI_COLOR_CONTENT_BORDER,
+	GS_GUI_COLOR_BUTTON,
+	GS_GUI_COLOR_BUTTONFOCUS,
+	GS_GUI_COLOR_TEXT,
+	GS_GUI_COLOR_TEXT_INACTIVE,
+	GS_GUI_COLOR_WINDOWBG,
+	GS_GUI_COLOR_TITLEBG,
+	GS_GUI_COLOR_TITLETEXT,
+	GS_GUI_COLOR_PANELBG,
+	GS_GUI_COLOR_BUTTONHOVER,
+	GS_GUI_COLOR_BASE,
+	GS_GUI_COLOR_BASEHOVER,
+	GS_GUI_COLOR_BASEFOCUS,
+	GS_GUI_COLOR_SCROLLBASE,
+	GS_GUI_COLOR_SCROLLTHUMB,
 
 	GS_GUI_COLOR_MAX
 };
@@ -1242,7 +1256,21 @@ static gs_gui_style_t gs_gui_default_style =
         {0, 0, 0, 31},        // GS_GUI_COLOR_SHADOW
         {0, 0, 0, 0},         // GS_GUI_COLOR_CONTENT_BACKGROUND
         {0, 0, 0, 0},         // GS_GUI_COLOR_CONTENT_SHADOW
-        {0, 0, 0, 0}          // GS_GUI_COLOR_CONTENT_BORDER
+        {0, 0, 0, 0},         // GS_GUI_COLOR_CONTENT_BORDER
+		{45, 45, 45, 240}, 	  // GS_GUI_COLOR_BUTTON,
+		{0, 0, 0, 240},       // GS_GUI_COLOR_BUTTONFOCUS,
+		{230, 230, 230, 255}, // GS_GUI_COLOR_TEXT,
+		{29, 29, 29, 240},    // GS_GUI_COLOR_TEXT_INACTIVE,
+		{0, 0, 0, 240},       // GS_GUI_COLOR_WINDOWBG,
+		{25, 25, 25, 240},    // GS_GUI_COLOR_TITLEBG,
+		{230, 230, 230, 240}, // GS_GUI_COLOR_TITLETEXT,
+		{29, 29, 29, 240},    // GS_GUI_COLOR_PANELBG,
+		{60, 60, 60, 240},    // GS_GUI_COLOR_BUTTONHOVER,
+		{29, 29, 29, 240},    // GS_GUI_COLOR_BASE,
+		{45, 45, 45, 240},    // GS_GUI_COLOR_BASEHOVER,
+		{60, 60, 60, 240},    // GS_GUI_COLOR_BASEFOCUS,
+		{29, 29, 29, 240},    // GS_GUI_COLOR_SCROLLBASE,
+		{29, 29, 29, 240},    // GS_GUI_COLOR_SCROLLTHUMB,
     },
 
     // padding (left, right, top, bottom)
@@ -4971,7 +4999,7 @@ gs_gui_renderpass_submit_ex(gs_gui_context_t* ctx, gs_command_buffer_t* cb, gs_g
     gs_gui_rect_t* vp = &ctx->viewport;
     gs_graphics_clear_desc_t clear = gs_default_val();
     clear.actions = action;
-	gs_renderpass_t pass = gs_default_val();
+	gs_handle(gs_graphics_renderpass_t) pass = gs_default_val();
 	gs_graphics_renderpass_begin(cb, pass);
     gs_graphics_set_viewport(cb, (uint32_t)vp->x, (uint32_t)vp->y, (uint32_t)vp->w, (uint32_t)vp->h);
 	gs_graphics_clear(cb, &clear);

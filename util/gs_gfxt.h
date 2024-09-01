@@ -2152,11 +2152,6 @@ gs_gfxt_texture_generate_default()
 
 //=== Resource Loading ===//
 
-typedef struct tmp_buffer_t
-{
-    char txt[1024]; 
-} tmp_buffer_t; 
-
 typedef struct gs_shader_io_data_t
 {
     char type[64];
