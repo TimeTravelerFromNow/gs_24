@@ -6127,6 +6127,7 @@ typedef struct gs_graphics_texture_desc_t
         size_t size;        // Size in bytes for data to be read
     } read;
     uint16_t flip_y;        // Whether or not y is flipped
+    bool32_t render_target; // is a render target
 } gs_graphics_texture_desc_t;
 
 /* Graphics Uniform Layout Desc */
